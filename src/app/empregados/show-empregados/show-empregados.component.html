@@ -1,1 +1,19 @@
-<p>show-empregados works!</p>
+<table class="table table-striped">
+    <thead>
+        <th>Matrícula</th>
+        <th>Nome</th>
+        <th>Data de Nascimento</th>
+        <th>Função</th>
+        <th>Escolaridade</th>
+    </thead>
+    <tbody class>
+        <tr *ngFor="let item of empregadoList$|async">
+            <td>{{item.matricula}}</td>
+            <td>{{item.nome}}</td>
+            <td>{{item.dataDeNascimento | date: 'dd/MM/yyyy'}}</td>
+            <td>{{item.funcaoId}}</td>
+            <td>{{item.escolaridadeId}}</td>
+        </tr>
+    </tbody>
+</table>
+
