@@ -1,19 +1,44 @@
 <table class="table table-striped">
-    <thead>
+    <thead class="text-center">
         <th>Matrícula</th>
         <th>Nome</th>
         <th>Data de Nascimento</th>
         <th>Função</th>
         <th>Escolaridade</th>
     </thead>
-    <tbody class>
+    <tbody class="text-center">
         <tr *ngFor="let item of empregadoList$|async">
             <td>{{item.matricula}}</td>
             <td>{{item.nome}}</td>
             <td>{{item.dataDeNascimento | date: 'dd/MM/yyyy'}}</td>
-            <td>{{item.funcaoId}}</td>
-            <td>{{item.escolaridadeId}}</td>
+            <td>{{funcaoMap.get(item.funcaoId)}}</td>
+            <td>{{escolaridadeMap.get(item.escolaridadeId)}}</td>
         </tr>
     </tbody>
 </table>
+
+<!-- Button trigger modal -->
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+    (click)="modalAdd()"
+    >
+        Adicionar Empregado
+      </button>
+</div>
+
+  
+  <!-- Add new Empregado Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">{{modalTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit-empregados></app-add-edit-empregados>
+        </div>
+      </div>
+    </div>
+  </div>
 
