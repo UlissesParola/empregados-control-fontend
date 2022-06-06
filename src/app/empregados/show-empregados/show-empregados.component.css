@@ -1,0 +1,41 @@
+#add-success-alert,
+#update-success-alert,
+#delete-success-alert {
+    display: none;
+}
+
+#add-success-alert,
+#update-success-alert,
+#delete-success-alert {
+    animation-name: fadeinAndOut;
+    animation-duration: 4s;
+}
+
+@keyframes fadeinAndOut {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@-webkit-keyframes fadeinAndOut {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+#add-empregado-button{
+    background-color: #ED9920;
+    color:white;
+    border-color: black;
+    border-style: none;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.title-bar{
+    background-color: #2776AF;
+    color: white;
+    font-weight: bold;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}

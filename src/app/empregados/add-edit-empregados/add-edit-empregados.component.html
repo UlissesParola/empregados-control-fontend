@@ -1,8 +1,9 @@
 <form>
 
-    <div class="mb-3">
+    <div class="mb-3 input">
         <label for="matricula" class="forma-label">Matrícula</label>
-        <input type="text" class="form-control" [(ngModel)]="matricula" name="matricula" pattern="([Cc]{1}\d{6})">
+        <input type="text" class="form-control" [(ngModel)]="matricula" name="matricula" pattern="[Cc]{1}\d{6}" maxlength="7" placeholder="c999999" title="Matrícula inválida">
+        <span>Matrícula inválida</span>
     </div>
 
     <div class="mb-3">
@@ -31,11 +32,11 @@
         </select>
     </div>
 
-    <button (click)="addEmpregado()" *ngIf="empregado.id == 0" class="btn btn-primary">
+    <button (click)="addEmpregado()" *ngIf="empregado.id == 0" class="btn btn-primary" id="add-empregado-button">
         Adicionar
     </button>
 
-    <button (click)="updateEmpregado()" *ngIf="empregado.id != 0" class="btn btn-primary">
+    <button (click)="updateEmpregado()" *ngIf="empregado.id != 0" class="btn btn-primary" id="add-empregado-button">
         Alterar
     </button>
 
