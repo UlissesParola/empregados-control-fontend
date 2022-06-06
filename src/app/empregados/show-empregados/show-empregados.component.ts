@@ -45,6 +45,11 @@ export class ShowEmpregadosComponent implements OnInit {
     this.activateAddEditEmpregadoComponent = true;
   }
 
+  modalClose(){
+    this.activateAddEditEmpregadoComponent = false;
+    this.empregadoList$ = this.service.getEmpregadolist();
+  }
+
   refreshEscolaridadeMap(){
     this.service.getEscolaridadeList().subscribe(data =>{
         this.escolaridadeList = data;

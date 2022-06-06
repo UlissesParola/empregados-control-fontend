@@ -17,6 +17,18 @@
     </tbody>
 </table>
 
+<div class="alert alert-success text-center" role="alert" id="add-success-alert">
+    Empregado adicionado com sucesso!
+</div>
+
+<div class="alert alert-success text-center" role="alert" id="edit-success-alert">
+    Empregado alterado com Sucesso!
+</div>
+
+<div class="alert alert-success text-center" role="alert" id="delete-success-alert">
+    Empregado deletado com sucesso!
+</div>
+
 <!-- Button trigger modal -->
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
@@ -27,13 +39,15 @@
 </div>
 
   
-  <!-- Add new Empregado Modal -->
+  <!-- Add or edit new Empregado Modal -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">{{modalTitle}}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="modalClose()" id="add-edit-modal-close"
+          ></button>
         </div>
         <div class="modal-body">
           <app-add-edit-empregados [empregado]="empregado" *ngIf="activateAddEditEmpregadoComponent" ></app-add-edit-empregados>

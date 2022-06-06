@@ -35,4 +35,37 @@ export class AddEditEmpregadosComponent implements OnInit {
     this.funcaoList$ = this.service.getFuncaoList();
     this.escolaridadeList$ = this.service.getEscolaridadeList();
   }
+
+  addEmpregado(){
+    var empregado = {
+      matricula: this.matricula,
+      nome:this.nome,
+      dataDeNascimento:this.dataDeNascimento,
+      funcaoId:this.funcaoId,
+      escolaridadeId:this.escolaridadeId
+    }
+
+    this.service.addEmpregado(empregado).subscribe(res => {
+      var closeModalBtn = document.getElementById('add-edit-modal-close');
+      if(closeModalBtn){
+        closeModalBtn.click();
+      }  
+
+      var showAddSuccess = document.getElementById('add-success-alert');
+      if(showAddSuccess){
+        showAddSuccess.style.display = "block";
+      }
+
+      setTimeout(function(){
+        if(showAddSuccess){
+          showAddSuccess.style.display = "none";
+        }  
+      }, 4000);
+
+    });
+  }
+
+  updateEmpregado(){
+
+  }
 }
