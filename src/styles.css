@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.bg-Caixa {background-color: #2776AF;}
+.OrangeCaixa { color: ED9920; }
+.CaixaFont {
+    font-family: Arial, Helvetica, sans-serif;
+  }
