@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EmpregadosApiService } from 'src/app/empregados-api.service';
 
 @Component({
   selector: 'app-add-edit-empregados',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEditEmpregadosComponent implements OnInit {
 
-  constructor() { }
+  empregadosList$!: Observable<any[]>;
+  funcaoList$!: Observable<any[]>;
+  escolaridadeList$!: Observable<any[]>;
+
+  constructor(private service:EmpregadosApiService) { }
+
+  @Input() empregado:any;
+  id: number = 0;
+  matricula:string = '';
+  nome:string = '';
+  dataDeNascimento:Date = new Date();
+  funcaoId:number = 0;
+  escolaridadeId:number = 0;
 
   ngOnInit(): void {
-  }
+    this.id = this.empregado.id;
+    this.matricula = this.empregado.matricula;
+    this.nome = this.empregado.nome;
+    this.dataDeNascimento = this.empregado.dataDeNascimento;
+    this.funcaoId = this.empregado.funcaoId;
+    this.escolaridadeId = this.empregado.escolaridadeId;
 
+    this.empregadosList$ = this.service.getEmpregadolist();
+    this.funcaoList$ = this.service.getFuncaoList();
+    this.escolaridadeList$ = this.service.getEscolaridadeList();
+  }
 }

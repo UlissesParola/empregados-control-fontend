@@ -36,7 +36,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <app-add-edit-empregados></app-add-edit-empregados>
+          <app-add-edit-empregados [empregado]="empregado" *ngIf="activateAddEditEmpregadoComponent" ></app-add-edit-empregados>
         </div>
       </div>
     </div>

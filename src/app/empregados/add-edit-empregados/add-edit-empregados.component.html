@@ -1,6 +1,9 @@
 <form>
     <div class="mb-3">
-        <label></label>
-
+        <label for="escolaridadeId" class="forma-label" >Escolaridade</label>
+        <select class="form-control" name="escolaridadeId" id="escolaridadeId" [(ngModel)]="escolaridadeId" *ngIf="empregado.id == 0">
+            <option *ngFor="let item of escolaridadeList$|async" [value]="item.id">{{item.nivelEscolaridade}}
+            </option>
+        </select>
     </div>
 </form>
