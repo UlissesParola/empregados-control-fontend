@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const nomeApp = angular14-empregados-api;
+const nomeApp = "angular14-empregados-api";
 const app = express();
 
 app.use(express.static(`${__dirname}/dist/${nomeApp}`));
