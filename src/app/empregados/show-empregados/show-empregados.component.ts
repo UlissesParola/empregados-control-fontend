@@ -45,6 +45,32 @@ export class ShowEmpregadosComponent implements OnInit {
     this.activateAddEditEmpregadoComponent = true;
   }
 
+  ModalEdit(item:any){
+    this.empregado = item;
+    this.modalTitle = "Editar Empregado";
+    this.activateAddEditEmpregadoComponent = true;
+  }
+
+  Delete(item:any)
+  {
+    if(confirm(`Você realmente quer excluir ${item.nome}?`)){
+      this.service.deleteEmpregado(item.id).subscribe(res =>{
+        
+      var showDeleteSuccess = document.getElementById('delete-success-alert');
+      if(showDeleteSuccess){
+        showDeleteSuccess.style.display = "block";
+      }
+
+      setTimeout(function(){
+        if(showDeleteSuccess){
+          showDeleteSuccess.style.display = "none";
+        }  
+      }, 4000);
+      this.empregadoList$ = this.service.getEmpregadolist();
+      });
+    }
+  }
+
   modalClose(){
     this.activateAddEditEmpregadoComponent = false;
     this.empregadoList$ = this.service.getEmpregadolist();

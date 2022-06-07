@@ -63,9 +63,39 @@ export class AddEditEmpregadosComponent implements OnInit {
       }, 4000);
 
     });
+    
   }
 
   updateEmpregado(){
+    var empregado = {
+      id: this.id,
+      matricula: this.matricula,
+      nome:this.nome,
+      dataDeNascimento:this.dataDeNascimento,
+      funcaoId:this.funcaoId,
+      escolaridadeId:this.escolaridadeId
+    }
 
+    var id:number = this.id;
+
+    this.service.updateEmpregado(id, empregado).subscribe(res => {
+      var closeModalBtn = document.getElementById('add-edit-modal-close');
+      if(closeModalBtn){
+        closeModalBtn.click();
+      }  
+
+      var showUpdateSuccess = document.getElementById('update-success-alert');
+      if(showUpdateSuccess){
+        showUpdateSuccess.style.display = "block";
+      }
+
+      setTimeout(function(){
+        if(showUpdateSuccess){
+          showUpdateSuccess.style.display = "none";
+        }  
+      }, 4000);
+
+    });
+    
   }
 }

@@ -3,7 +3,6 @@
     <div class="mb-3 input">
         <label for="matricula" class="forma-label">Matrícula</label>
         <input type="text" class="form-control" [(ngModel)]="matricula" name="matricula" pattern="[Cc]{1}\d{6}" maxlength="7" placeholder="c999999" title="Matrícula inválida">
-        <span>Matrícula inválida</span>
     </div>
 
     <div class="mb-3">
@@ -13,7 +12,7 @@
 
     <div class="mb-3">
         <label for="funcaoId" class="forma-label" >Função</label>
-        <select class="form-control" name="funcaoId" id="funcaoId" [(ngModel)]="funcaoId" *ngIf="empregado.id == 0">
+        <select class="form-control" name="funcaoId" id="funcaoId" [(ngModel)]="funcaoId" >
             <option *ngFor="let item of funcaoList$|async" [value]="item.id">{{item.nomeFuncao}}
             </option>
         </select>
@@ -21,12 +20,12 @@
     
     <div class="mb-3">
         <label for="dataDeNascimento" class="forma-label">Data de Nascimento</label>
-        <input type="date" class="form-control" [(ngModel)]="dataDeNascimento" name="dataDeNascimento">
+        <input type="date" class="form-control" [ngModel]="empregado.dataDeNascimento" (ngModelChange)="dataDeNascimento=$event" name="dataDeNascimento">
     </div>
 
     <div class="mb-3">
         <label for="escolaridadeId" class="forma-label" >Escolaridade</label>
-        <select class="form-control" name="escolaridadeId" id="escolaridadeId" [(ngModel)]="escolaridadeId" *ngIf="empregado.id == 0">
+        <select class="form-control" name="escolaridadeId" id="escolaridadeId" [(ngModel)]="escolaridadeId">
             <option *ngFor="let item of escolaridadeList$|async" [value]="item.id">{{item.nivelEscolaridade}}
             </option>
         </select>
@@ -36,7 +35,7 @@
         Adicionar
     </button>
 
-    <button (click)="updateEmpregado()" *ngIf="empregado.id != 0" class="btn btn-primary" id="add-empregado-button">
+    <button (click)="updateEmpregado()" *ngIf="empregado.id != 0" class="btn btn-primary" id="update-empregado-button">
         Alterar
     </button>
 
