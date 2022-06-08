@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmpregadosApiService {
-  readonly empregadosAPIUrl = "https://localhost:7082/api";
+  readonly empregadosAPIUrl = "https://controle-empregados-api.herokuapp.com/api";
 
   constructor(private http:HttpClient) { }
 
