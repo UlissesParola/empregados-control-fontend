@@ -20,7 +20,7 @@
     
     <div class="mb-3">
         <label for="dataDeNascimento" class="forma-label">Data de Nascimento</label>
-        <input type="date" class="form-control" [ngModel]="empregado.dataDeNascimento" (ngModelChange)="dataDeNascimento=$event" name="dataDeNascimento">
+        <input type="date" class="form-control" [(ngModel)]="empregado.dataDeNascimento" name="dataDeNascimento">
     </div>
 
     <div class="mb-3">

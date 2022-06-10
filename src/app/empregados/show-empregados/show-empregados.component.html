@@ -11,7 +11,7 @@
         <tr *ngFor="let item of empregadoList$|async">
             <td>{{item.matricula}}</td>
             <td>{{item.nome}}</td>
-            <td>{{item.dataDeNascimento | date: 'dd/MM/yyyy'}}</td>
+            <td>{{item.dataDeNascimento}}</td>
             <td>{{funcaoMap.get(item.funcaoId)}}</td>
             <td>{{escolaridadeMap.get(item.escolaridadeId)}}</td>
             <td> 

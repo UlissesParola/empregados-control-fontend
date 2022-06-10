@@ -19,7 +19,7 @@ export class AddEditEmpregadosComponent implements OnInit {
   id: number = 0;
   matricula:string = '';
   nome:string = '';
-  dataDeNascimento:Date = new Date();
+  dataDeNascimento:string = '';
   funcaoId:number = 0;
   escolaridadeId:number = 0;
 
