@@ -93,7 +93,15 @@ export class ShowEmpregadosComponent implements OnInit {
       for (let i = 0; i < data.length; i++){
         this.funcaoMap.set(this.funcaoList[i].id, this.funcaoList[i].nomeFuncao);
       }
-  })
+    })
+  }
+
+  dateMask(item:string){
+    var str = item;
+
+    var [year, month, day] = str.split('-');
+    
+    return `${day}/${month}/${year}`;
   }
 
 }
