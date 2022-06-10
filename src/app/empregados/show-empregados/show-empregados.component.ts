@@ -37,7 +37,7 @@ export class ShowEmpregadosComponent implements OnInit {
       id:0,
       matricula:'',
       nome:'',
-      dataDeNascimento: null,
+      dataDeNascimento: '',
       funcaoId:null,
       escolaridadeId:null
     }
