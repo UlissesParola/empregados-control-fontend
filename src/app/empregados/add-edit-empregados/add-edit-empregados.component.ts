@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EmpregadosApiService } from 'src/app/empregados-api.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-edit-empregados',
@@ -9,11 +10,22 @@ import { EmpregadosApiService } from 'src/app/empregados-api.service';
 })
 export class AddEditEmpregadosComponent implements OnInit {
 
+  addEmpregadosFormGroup: FormGroup;
   empregadosList$!: Observable<any[]>;
   funcaoList$!: Observable<any[]>;
   escolaridadeList$!: Observable<any[]>;
 
-  constructor(private service:EmpregadosApiService) { }
+  constructor(private service:EmpregadosApiService, private formBuilder: FormBuilder) { 
+
+    this.addEmpregadosFormGroup = this.formBuilder.group({
+      matricula: ['', [
+        Validators.required,
+        Validators.pattern('^[Cc]{1}\d{6}$')]],
+      nome: ['', Validators.required,],
+      dataDeNascimento: ['', Validators.required]
+    });
+
+  }
 
   @Input() empregado:any;
   id: number = 0;
