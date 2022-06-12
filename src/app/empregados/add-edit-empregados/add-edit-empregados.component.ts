@@ -20,9 +20,11 @@ export class AddEditEmpregadosComponent implements OnInit {
     this.addEmpregadosFormGroup = this.formBuilder.group({
       matricula: ['', [
         Validators.required,
-        Validators.pattern('^[Cc]{1}\d{6}$')]],
-      nome: ['', Validators.required,],
-      dataDeNascimento: ['', Validators.required]
+        Validators.pattern(/[Cc]{1}\d{6}/)]],
+      nome: ['', Validators.required],
+      funcaoId:'',
+      dataDeNascimento: '',
+      escolaridadeId:''
     });
 
   }

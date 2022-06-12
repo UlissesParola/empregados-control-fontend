@@ -2,12 +2,12 @@
 
     <div class="mb-3 input">
         <label for="matricula" class="forma-label">Matrícula</label>
-        <input type="text" class="form-control" formControlName="matricula" [(ngModel)]="matricula" name="matricula" pattern="[Cc]{1}\d{6}" maxlength="7" placeholder="c999999" title="Matrícula inválida">
+        <input type="text" class="form-control" formControlName="matricula" [(ngModel)]="matricula" maxlength="7" placeholder="c999999">
         <ng-container *ngIf="addEmpregadosFormGroup.controls['matricula'].touched">
-            <span *ngIf="addEmpregadosFormGroup.controls['matricula'].errors?.['required']" class="invalid-feedback">
+            <span *ngIf="addEmpregadosFormGroup.controls['matricula'].errors?.['required']" class="text-danger">
                 Campo Obrigatório.
             </span>
-            <span *ngIf="addEmpregadosFormGroup.controls['matricula'].errors?.['pattern']" class="invalid-feedback">
+            <span *ngIf="addEmpregadosFormGroup.controls['matricula'].errors?.['pattern']" class="text-danger">
                 Matrícula inválida.
             </span>
         </ng-container> 
@@ -15,9 +15,9 @@
 
     <div class="mb-3">
         <label for="nome" class="forma-label">Nome</label>
-        <input type="text" class="form-control" formControlName="nome" [(ngModel)]="nome" name="nome" maxlength="100">
+        <input type="text" class="form-control" formControlName="nome" [(ngModel)]="nome" maxlength="100">
         <ng-container *ngIf="addEmpregadosFormGroup.controls['nome'].touched">
-            <span *ngIf="addEmpregadosFormGroup.controls['matricula'].errors?.['required']" class="invalid-feedback">
+            <span *ngIf="addEmpregadosFormGroup.controls['nome'].errors?.['required']" class="text-danger">
                 Campo Obrigatório.
             </span>
         </ng-container>
@@ -25,7 +25,7 @@
 
     <div class="mb-3">
         <label for="funcaoId" class="forma-label" >Função</label>
-        <select class="form-control" name="funcaoId" id="funcaoId" [(ngModel)]="funcaoId" >
+        <select class="form-control" formControlName="funcaoId" id="funcaoId" [(ngModel)]="funcaoId" >
             <option *ngFor="let item of funcaoList$|async" [value]="item.id">{{item.nomeFuncao}}
             </option>
         </select>
@@ -34,16 +34,11 @@
     <div class="mb-3">
         <label for="dataDeNascimento" class="forma-label">Data de Nascimento</label>
         <input type="date" class="form-control" formControlName="dataDeNascimento" [(ngModel)]="dataDeNascimento" name="dataDeNascimento">
-        <ng-container *ngIf="addEmpregadosFormGroup.controls['dataDeNascimento'].touched">
-            <span *ngIf="addEmpregadosFormGroup.controls['dataDeNascimento'].errors?.['required']" class="invalid-feedback">
-                Campo Obrigatório.
-            </span>
-        </ng-container>
     </div>
 
     <div class="mb-3">
         <label for="escolaridadeId" class="forma-label" >Escolaridade</label>
-        <select class="form-control" name="escolaridadeId" id="escolaridadeId" [(ngModel)]="escolaridadeId">
+        <select class="form-control" formControlName="escolaridadeId" id="escolaridadeId" [(ngModel)]="escolaridadeId">
             <option *ngFor="let item of escolaridadeList$|async" [value]="item.id">{{item.nivelEscolaridade}}
             </option>
         </select>
