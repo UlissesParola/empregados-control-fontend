@@ -11,6 +11,11 @@
     animation-duration: 4s;
 }
 
+.pagination{
+  text-align: left;
+  float: right;
+}
+
 @keyframes fadeinAndOut {
     0% {opacity: 0;}
     50% {opacity: 1;}
