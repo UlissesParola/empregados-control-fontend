@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpregadosApiService {
-  readonly empregadosAPIUrl = "https://controle-empregados-api.herokuapp.com/api";
+  readonly empregadosAPIUrl = environment.API_URL;
 
   constructor(private http:HttpClient) { }
 
@@ -32,7 +33,7 @@ export class EmpregadosApiService {
 
   getEscolaridade(id:number|string) {
     return this.http.get(this.empregadosAPIUrl + `/Escolaridades/${id}`);
-  } 
+  }
 
   getFuncaoList():Observable<any[]> {
     return this.http.get<any>(this.empregadosAPIUrl + `/Funcoes`);

@@ -73,14 +73,14 @@ export class ShowEmpregadosComponent implements OnInit {
           showDeleteSuccess.style.display = "none";
         }
       }, 4000);
-      this.empregadoList$ = this.service.getEmpregadolist();
+      this.refreshEmpregadoList();
       });
     }
   }
 
   modalClose(){
     this.activateAddEditEmpregadoComponent = false;
-    this.empregadoList$ = this.service.getEmpregadolist();
+    this.refreshEmpregadoList();
   }
 
   refreshEscolaridadeMap(){
