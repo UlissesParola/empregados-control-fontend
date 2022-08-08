@@ -105,6 +105,10 @@ export class ShowEmpregadosComponent implements OnInit {
 
   refreshEmpregadoList(){
     this.service.getEmpregadolist().subscribe(data =>{
+      if (data != null) {
+        this.hideLoader();
+      }
+
       this.empregadoList = data;
     })
   }
@@ -115,6 +119,10 @@ export class ShowEmpregadosComponent implements OnInit {
     var [year, month, day] = str.split('-');
 
     return `${day}/${month}/${year}`;
+  }
+
+  hideLoader(){
+    document.getElementById('loading_api')!.style.display = 'none';
   }
 
 }

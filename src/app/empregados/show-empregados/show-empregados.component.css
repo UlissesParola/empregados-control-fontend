@@ -11,6 +11,18 @@
     animation-duration: 4s;
 }
 
+.empregados-table{
+  height: auto;
+  min-height: 50px;
+}
+
+.Load-spinner{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .pagination{
   text-align: left;
   float: right;
@@ -43,4 +55,8 @@
     font-weight: bold;
     padding-top: 2%;
     padding-bottom: 2%;
+}
+
+.hidden{
+  display: none;
 }
