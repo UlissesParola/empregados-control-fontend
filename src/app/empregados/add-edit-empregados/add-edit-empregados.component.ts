@@ -15,7 +15,7 @@ export class AddEditEmpregadosComponent implements OnInit {
   funcaoList$!: Observable<any[]>;
   escolaridadeList$!: Observable<any[]>;
 
-  constructor(private service:EmpregadosApiService, private formBuilder: FormBuilder) { 
+  constructor(private service:EmpregadosApiService, private formBuilder: FormBuilder) {
 
     this.addEmpregadosFormGroup = this.formBuilder.group({
       matricula: ['', [
@@ -52,7 +52,7 @@ export class AddEditEmpregadosComponent implements OnInit {
 
   addEmpregado(){
     var empregado = {
-      matricula: this.matricula,
+      matricula: this.matricula.toLowerCase(),
       nome:this.nome,
       dataDeNascimento:this.dataDeNascimento,
       funcaoId:this.funcaoId,
@@ -63,7 +63,7 @@ export class AddEditEmpregadosComponent implements OnInit {
       var closeModalBtn = document.getElementById('add-edit-modal-close');
       if(closeModalBtn){
         closeModalBtn.click();
-      }  
+      }
 
       var showAddSuccess = document.getElementById('add-success-alert');
       if(showAddSuccess){
@@ -73,17 +73,17 @@ export class AddEditEmpregadosComponent implements OnInit {
       setTimeout(function(){
         if(showAddSuccess){
           showAddSuccess.style.display = "none";
-        }  
+        }
       }, 4000);
 
     });
-    
+
   }
 
   updateEmpregado(){
     var empregado = {
       id: this.id,
-      matricula: this.matricula,
+      matricula: this.matricula.toLowerCase(),
       nome:this.nome,
       dataDeNascimento:this.dataDeNascimento,
       funcaoId:this.funcaoId,
@@ -96,7 +96,7 @@ export class AddEditEmpregadosComponent implements OnInit {
       var closeModalBtn = document.getElementById('add-edit-modal-close');
       if(closeModalBtn){
         closeModalBtn.click();
-      }  
+      }
 
       var showUpdateSuccess = document.getElementById('update-success-alert');
       if(showUpdateSuccess){
@@ -106,10 +106,10 @@ export class AddEditEmpregadosComponent implements OnInit {
       setTimeout(function(){
         if(showUpdateSuccess){
           showUpdateSuccess.style.display = "none";
-        }  
+        }
       }, 4000);
 
     });
-    
+
   }
 }
