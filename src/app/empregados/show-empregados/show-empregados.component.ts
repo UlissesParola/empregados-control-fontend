@@ -19,7 +19,6 @@ export class ShowEmpregadosComponent implements OnInit {
   funcaoList:any = [];
   actualPage: number = 1;
 
-
   escolaridadeMap:Map<number, string> = new Map();
   funcaoMap:Map<number, string> = new Map();
 
@@ -37,6 +36,9 @@ export class ShowEmpregadosComponent implements OnInit {
   modalTitle:string = '';
   activateAddEditEmpregadoComponent:boolean = false;
   empregado:any;
+  filter = { $or:[""]};
+  orderHeader: String = "";
+  descOrAsc: boolean = true;
 
 
   modalAdd(){
@@ -123,6 +125,11 @@ export class ShowEmpregadosComponent implements OnInit {
 
   hideLoader(){
     document.getElementById('loading_api')!.style.display = 'none';
+  }
+
+  sort(orderField:String){
+    this.descOrAsc = !this.descOrAsc;
+    this.orderHeader = orderField;
   }
 
 }
