@@ -36,9 +36,9 @@ export class ShowEmpregadosComponent implements OnInit {
   modalTitle:string = '';
   activateAddEditEmpregadoComponent:boolean = false;
   empregado:any;
-  filter = { $or:[""]};
   orderHeader: String = "";
   descOrAsc: boolean = true;
+  term!:string;
 
 
   modalAdd(){
